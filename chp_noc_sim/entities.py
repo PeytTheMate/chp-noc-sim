@@ -35,6 +35,8 @@ class Node:
     id: str
     temperature_k: float = 300.0
     switch_state: SwitchState = SwitchState.IDLE
+    queue_length: float = 0.0
+
 
 
 @dataclass
@@ -71,3 +73,4 @@ class Link:
         packet.current_loss_db += deterministic_loss_db + noise_db
         latency_ns = physics.compute_link_latency(self.length_microns)
         return current_time_ns + latency_ns
+
